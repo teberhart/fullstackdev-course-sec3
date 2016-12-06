@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Audio & Video</title>
+	</head>
+	<body>
+		<h1>Video</h1>
+		<video id="ma_video" src="http://v2v.cc/~j/theora_testsuite/320x240.ogg" controls>
+			Votre navigateur ne supporte pas les vidéos HTML5.
+			</video>
+		<br>
+
+		<h1>Audio</h1>
+		<audio id="mon_son" src="http://www.freesound.org/data/previews/95/95026_57789-lq.mp3" controls>
+			Votre navigateur ne supporte pas l'audio HTML5.
+		</audio>
+
+		<div>
+			<button onclick="document.getElementById('mon_son').play();">Play</button>
+			<button onclick="document.getElementById('mon_son').pause();">Pause</button>
+			<button onclick="document.getElementById('mon_son').volume+=0.1;">Vol+</button>
+			<button onclick="document.getElementById('mon_son').volume-=0.1;">Vol-</button>
+		</div>
+
+		<script type="text/javascript">
+			var v = document.getElementById('ma_video');
+			v.play();
+		</script>
+	</body>
+</html>
