@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Geolocalisation</title>
+	</head>
+	<body>
+		<button onclick="getLocation()">Récupérer les coordonnées</button>
+
+		<h1 id="coordonnees"></h1>
+
+		<script type="text/javascript">
+			var x = document.getElementById('coordonnees');
+
+			function getLocation() {
+				if (navigator.getlocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					x.innerHTML = "Votre navigateur ne supporte pas la géolocalisation.";
+				}
+
+				function showPosition(position) {
+					/*console.log(position.coords.latitude);
+					console.log(position.coords.longitude);*/
+
+					x.innerHTML = "Votre latitude est de : " + position.coords.latitude + ".<br>Votre longitude est de : " + position.coords.longitude;
+				}
+			}
+		</script>
+	</body>
+</html>
