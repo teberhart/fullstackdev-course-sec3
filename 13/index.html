@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stockage Web</title>
+	</head>
+	<body>
+		<div id="nom">
+			
+		</div>
+
+		<script type="text/javascript">
+			/*
+			if (typeof(Storage) != undefined) {
+				// Stocker un objet
+				localStorage.setItem('nom', 'Jean Martin');
+
+				// Récupérer l'objet
+				console.log(localStorage.nom);
+
+				if(localStorage.nom) {
+					document.getElementById('nom').innerHTML=localStorage.getItem('nom');
+				} else {
+					document.getElementById('nom').innerHTML="Aucun nom trouvé";
+				}
+
+				// Retirer un objet
+				localStorage.removeItem('nom');
+
+				console.log(localStorage.nom);
+			} else {
+				document.getElementById('nom').innerHTML="Votre navigateur ne gère pas les stockages locaux.";
+			}
+			*/
+
+			if (typeof(Storage) != undefined) {
+				// Stocker un objet
+				sessionStorage.setItem('nom', 'Ano Nymes');
+
+				// Récupérer l'objet
+				console.log(sessionStorage.nom);
+
+				if(sessionStorage.nom) {
+					document.getElementById('nom').innerHTML=sessionStorage.getItem('nom');
+				} else {
+					document.getElementById('nom').innerHTML="Aucun nom trouvé";
+				}
+
+				// Retirer un objet
+				sessionStorage.removeItem('nom');
+
+				console.log(sessionStorage.nom);
+			} else {
+				document.getElementById('nom').innerHTML="Votre navigateur ne gère pas les stockages en session.";
+			}
+		</script>
+	</body>
+</html>
