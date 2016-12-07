@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MesNotes</title>
+
+		<style type="text/css">
+			body{
+				font-family: Tahoma;
+				line-height: 1.6em;
+				background: #dddddd;
+			}
+
+			header, footer{
+				text-align: center;
+			}
+
+			#container {
+				width: 400px;
+				margin: 50px auto;
+				background: #f4f4f4;
+				overflow: hidden;
+				padding: 30px;
+			}
+
+			.clear {
+				text-decoration: none;
+				background: #333333;
+				color: #ffffff;
+				padding: 10px;
+			}
+		</style>
+
+		<script type="text/javascript">
+			function getNote() {
+				if (localStorage.getItem('note')) {
+					var note = localStorage.getItem('note');
+				} else {
+					var note = "Veuillez éditer cette note puis la sauvegarder.";
+				}
+				document.getElementById('note').innerHTML = note;
+			}
+
+			function saveNote(id) {
+				var note = document.getElementById('note').innerHTML;
+				localStorage.setItem('note', note);
+			}
+
+			function clearNote(){
+				localStorage.removeItem('note');
+				getNote();
+
+				return false;
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>MesNotes</h1>
+		</header>
+
+		<section id="container">
+			<div id="note" contenteditable="true" onkeyup="saveNote(this.id)">
+				
+			</div>
+		</section>
+
+		<footer>
+			<div>
+				<a href="#" class="clear" onclick="javascript:clearNote()">Vider les notes</a>
+			</div>
+			<p>Copyright MesNotes &copy; 2016</p>
+		</footer>
+
+		<script type="text/javascript">
+			getNote();
+		</script>
+	</body>
+</html>
