@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Glisser - Déposer</title>
+
+		<style type="text/css">
+			#boite{
+				width: 300px;
+				height: 150px;
+				padding: 10px;
+				border: 1px grey solid;
+			}
+		</style>
+
+		<script type="text/javascript">
+			function allowDrop(e) {
+				e.preventDefault();
+			}
+
+			function drag(e) {
+				e.dataTransfer.setData("text", e.target.id);
+			}
+
+			function drop(e) {
+				e.preventDefault();
+				var data = e.dataTransfer.getData("text");
+				e.target.appendChild(document.getElementById(data));
+			}
+		</script>
+	</head>
+	<body>
+		<div id="boite" ondrop="drop(event)" ondragover="allowDrop(event)">
+			
+		</div>
+
+		<img id="logo" src="logo.png" draggable="true" ondragstart="drag(event)" width="291" height="145">
+
+		<h1 contenteditable="true">Ce texte peut être modifié.</h1>
+	</body>
+</html>
